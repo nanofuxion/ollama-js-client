@@ -49,7 +49,7 @@ export default class Ollama {
   private verbose: boolean;
 
   // context is used to store the previous response context
-  private context: number[];
+  context: number[];
 
   // current_stream is used to store the current stream instance
   private current_stream: FetchJSONStream | null;
@@ -64,7 +64,7 @@ export default class Ollama {
     this.options = options.options || {};
     this.verbose = options.verbose || false;
 
-    this.context = [];
+    this.context = options.context || [];
     this.current_stream = null;
     this.current_json_fetch = null;
   }
